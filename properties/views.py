@@ -1,10 +1,11 @@
+# properties/views.py
 from django.views.decorators.cache import cache_page
 from django.http import JsonResponse
-from .utils import getallproperties  # <- updated import
+from .utils import getallproperties  # use correct function
 
-@cache_page(60 * 15)  # cache 15 minutes
+@cache_page(60 * 15)
 def property_list(request):
-    properties = getallproperties()  # <- call updated function
+    properties = getallproperties()  # <- correct call
     data = [
         {
             "id": prop.id,
